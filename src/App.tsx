@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Activity, ArrowDown, ArrowRight, CalendarDays, CheckCircle2, Clock3, HeartPulse, MapPin, Menu, MessageCircle, Phone, ShieldCheck, Sparkles, Stethoscope, X } from 'lucide-react'
+import { Activity, ArrowDown, ArrowRight, CalendarDays, CheckCircle2, Clock3, HeartPulse, Instagram, MapPin, Menu, MessageCircle, Phone, ShieldCheck, Sparkles, Stethoscope, X } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -86,7 +86,36 @@ export default function App() {
 
       <section id="services" className="section services-section"><div className="container"><div className="section-heading"><div><span className="eyebrow">Направления работы</span><h2 className="section-title">Услуги клиники</h2><p className="body-copy">Выберите направление, чтобы уточнить детали и обсудить, подходит ли оно вам.</p></div><span className="heading-deco"><Stethoscope size={42}/></span></div><div className="services-grid">{services.map((service, i) => <motion.article key={service.id} className="card service-card" initial={{opacity:0,y:14}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.15}} transition={{delay:i*.05}}><div className="service-top"><span className="service-icon">{[<HeartPulse/>,<Activity/>,<Sparkles/>,<ShieldCheck/>,<Stethoscope/>,<Clock3/>][i]}</span><span className="service-number">0{i+1}</span></div><h3>{service.title}</h3><p>{service.description}</p><div className="service-price">{service.price}</div><button className="service-link" onClick={() => openBooking(service.id)}>Уточнить и записаться <ArrowRight size={16}/></button></motion.article>)}</div><p className="disclaimer">Перечень услуг и цены необходимо подтвердить у клиники. Показания, ограничения и ожидаемые результаты обсуждаются со специалистом.</p></div></section>
 
-      <section id="doctor" className="section doctor-section"><div className="container doctor-grid"><div className="doctor-visual"><div className="doctor-placeholder"><Stethoscope size={78}/><span>SpasMed</span><small>Место для настоящей фотографии специалиста</small></div><div className="doctor-stamp"><HeartPulse/><span>Здоровье<br/>и внимание</span></div></div><div className="doctor-content"><span className="eyebrow">Ваш специалист</span><h2 className="section-title">Доктор Мухаммаджон</h2><p className="body-copy">На этой странице можно познакомиться со специалистом, его подтверждённым образованием, опытом и подходом к работе.</p><div className="credential-note"><ShieldCheck/><p><b>Информация уточняется</b><br/>Добавьте проверенные сведения об образовании, специализации, стаже и действующих документах. Мы не публикуем неподтверждённые регалии.</p></div><button className="btn btn-primary" onClick={() => openBooking()}>Записаться на приём <ArrowRight size={18}/></button></div></div></section>
+      <section id="doctor" className="section founder-section"><div className="container founder-grid">
+        <motion.div className="founder-photo-wrap" initial={{opacity:0,x:-18}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.2}} transition={{duration:.5}}>
+          <div className="founder-photo-frame">
+            <div className="founder-photo-placeholder" role="img" aria-label="Место для фотографии Мухаммаджона Алламуродова">
+              <div className="founder-photo-monogram">MA</div>
+              <span className="founder-photo-label">Фотография основателя</span>
+              <small>Замените этот блок на фото из профиля Instagram</small>
+            </div>
+          </div>
+          <div className="founder-photo-caption"><span className="founder-caption-dot"/><span>SpasMed <i>·</i> SinoMed</span></div>
+        </motion.div>
+        <motion.div className="founder-content" initial={{opacity:0,y:18}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.2}} transition={{duration:.5,delay:.08}}>
+          <span className="eyebrow">Основатель клиники</span>
+          <h2 className="section-title">Мухаммаджон <span className="founder-surname">Алламуродов</span></h2>
+          <p className="founder-role">Основатель и генеральный директор <strong>SpasMed</strong> и <strong>SinoMed</strong></p>
+          <p className="body-copy founder-description">Врач с международной практикой и ведущий специалист клиники. В своей работе уделяет внимание индивидуальному подходу, открытому диалогу и понятному обсуждению возможных вариантов помощи.</p>
+          <div className="founder-principle"><span className="founder-principle-icon"><HeartPulse size={20}/></span><p>«В центре медицинской помощи всегда должен быть человек»</p></div>
+          <div className="founder-actions">
+            <a className="btn btn-primary" href="tel:+79773284422"><Phone size={18}/> Запись к врачу / Консультация <ArrowRight size={17}/></a>
+            <a className="btn btn-whatsapp" href="https://wa.me/79773284422" target="_blank" rel="noreferrer"><MessageCircle size={19}/> Написать в WhatsApp <ArrowRight size={16}/></a>
+          </div>
+          <div className="founder-socials">
+            <span className="founder-socials-label">Следите за нами</span>
+            <div className="founder-social-links">
+              <a href="https://www.instagram.com/doctor.muhammadjonmoscow/" target="_blank" rel="noreferrer" aria-label="Instagram Мухаммаджона Алламуродова"><Instagram size={18}/><span>@doctor.muhammadjonmoscow</span><ArrowRight size={14}/></a>
+              <a href="https://www.instagram.com/spasmed_clinic/" target="_blank" rel="noreferrer" aria-label="Instagram клиники SpasMed"><Instagram size={18}/><span>@spasmed_clinic</span><ArrowRight size={14}/></a>
+            </div>
+          </div>
+        </motion.div>
+      </div></section>
 
       <section className="section reviews-section"><div className="container review-inner"><div className="review-mark">“</div><span className="eyebrow">Открытость и доверие</span><h2 className="section-title">Ваш опыт важен</h2><p className="body-copy">Здесь можно разместить реальные отзывы пациентов с их разрешения, а также видеоотзывы. До получения подтверждённых материалов мы не публикуем вымышленные отзывы и оценки.</p><div className="review-placeholder"><MessageCircle/><span>Место для подтверждённых отзывов</span></div></div></section>
 
