@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { services } from './data/services'
-import founderPhoto from './img/IMG_20261019_220212.jpg'
 
 const phone = '+7 (XXX) XXX-XX-XX'
 const schema = z.object({
@@ -90,7 +89,7 @@ export default function App() {
       <section id="doctor" className="section founder-section"><div className="container founder-grid">
         <motion.div className="founder-photo-wrap" initial={{opacity:0,x:-18}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.2}} transition={{duration:.5}}>
           <div className="founder-photo-frame">
-            <img className="founder-photo-image" src={founderPhoto} alt="Мухаммаджон Алламуродов, основатель и генеральный директор SpasMed и SinoMed" loading="lazy" decoding="async" />
+            <img className="founder-photo-image" src={new URL('./img/IMG_20261019_220212.jpg', import.meta.url).href} alt="Мухаммаджон Алламуродов, основатель и генеральный директор SpasMed и SinoMed" loading="lazy" decoding="async" />
           </div>
           <div className="founder-photo-caption"><span className="founder-caption-dot"/><span>SpasMed <i>·</i> SinoMed</span></div>
         </motion.div>
