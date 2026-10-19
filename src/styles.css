@@ -9,6 +9,7 @@
 .founder-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1fr);align-items:center;gap:clamp(42px,7vw,94px)}
 .founder-photo-wrap{position:relative;max-width:500px;width:100%;margin-inline:auto;padding:0 18px 18px 0}
 .founder-photo-frame{position:relative;padding:10px;border:1px solid #dcebe4;border-radius:30px;background:linear-gradient(145deg,#f7fbf9,#eaf5f0);box-shadow:0 24px 65px #163f3010}
+.founder-photo-image{display:block;width:100%;min-height:470px;aspect-ratio:4/5;object-fit:cover;object-position:center 25%;border-radius:22px;background:#e8f5ef}
 .founder-photo-placeholder{position:relative;isolation:isolate;min-height:470px;aspect-ratio:4/5;overflow:hidden;border-radius:22px;background:linear-gradient(155deg,#e8f5ef 0%,#d3e9df 48%,#b5d8c9 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0d5c46;text-align:center;padding:28px}
 .founder-photo-placeholder:before,.founder-photo-placeholder:after{content:"";position:absolute;z-index:-1;border-radius:50%;border:1px solid #0d5c461c}
 .founder-photo-placeholder:before{width:370px;height:370px;top:-105px;right:-125px;box-shadow:0 0 0 28px #ffffff17,0 0 0 58px #ffffff12}
